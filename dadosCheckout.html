@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkout</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Super Market Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<!-- js -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+		$('#addBtn').attr("value", "Finalizar compra");
+		isCheckoutDone(); 
+	});
+</script>
+
+<!-- axios -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+<!-- start-smoth-scrolling -->
+</head>
+	
+<body>
+<!-- header -->
+	
+	<div class="logo_products">
+        <div class="container">
+            <div class="w3ls_logo_products_left">
+                <h1><a href="index.html">SuperMercado</a></h1>
+                <i class='fa fa-money' style='font-size:24px;color:white'></i>
+                <span>50€</span>
+            </div>
+        <div class="product_list_header">
+                    <form action="#" method="post" class="last"> 
+                        <input type="hidden" name="cmd" value="_cart">
+                        <input type="hidden" name="display" value="1">
+                        <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                    </form>
+                    <span id="number-goodies"></span>
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+<!-- //header -->
+<div class="navigation-agileits">
+		<div class="container">
+			<nav class="navbar navbar-default">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header nav_2">
+								<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div> 
+							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+								<ul class="nav navbar-nav">
+									<!-- Mega Menu -->
+									<li><a href="Info.html">Info</a></li>
+								</ul>
+							</div>
+							</nav>
+			</div>
+		</div>
+<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li class="active">Finalizar compra</li>
+			</ol>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+
+	<div class="register">
+		<div class="container">
+			<h2>Dados para CheckOut</h2>
+			<div class="login-form-grids">
+				
+					<h6>Preencha o formulário</h6>
+
+				<form onsubmit="return false;" id="checkout-form">
+					<!--<label for="input-regiao">Regiao</label></br> -->
+					<!--<input type="text" id="input-regiao" placeholder="Insira a sua região" required > -->
+					<label for="input-região">Região</label></br>
+					<select id="input-regiao" >
+						<option value="Madeira">Madeira</option>
+						<option value="Açores">Açores</option>
+						<option value="Viana do Castelo">Viana do Castelo</option>
+						<option value="Braga">Braga</option>
+						<option value="Vila Real">Vila Real</option>
+						<option value="Bragança">Bragança</option>
+						<option value="Porto">Porto</option>
+						<option value="Aveiro">Aveiro</option>
+						<option value="Viseu">Viseu</option>
+						<option value="Guarda">Guarda</option>
+						<option value="Coimbra">Coimbra</option>
+						<option value="Castelo Branco">Castelo Branco</option>
+						<option value="Leiria">Leiria</option>
+						<option value="Santarém">Santarém</option>
+						<option value="Portalegre">Portalegre</option>
+						<option value="Setúbal">Setúbal</option>
+						<option value="Évora">Évora</option>
+						<option value="Beja">Beja</option>
+						<option value="Faro">Faro</option>
+						<option value="Outro">Outro</option>
+					</select>
+					
+					</br>
+					<label for="input-sexo">Sexo</label></br>
+					<select id="input-sexo">
+						<option value="Masculino">Masculino</option>
+						<option value="Feminino">Feminino</option>
+						<option value="Outro">Outro</option>
+					</select>
+					</br>
+					
+					<label for="input-idade">Idade</label></br>
+					<input type="number" id="input-idade" name="input-27" min="15" max="99" placeholder="Insira a sua idade" required >
+					
+					<div class="register-check-box submit-form-button"></div>
+					<input type="submit" id="addBtn" onclick="completeCheckout()">
+				</form>
+
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="container">
+			<div class="w3_footer_grids">
+				<div class="col-md-3 w3_footer_grid">
+					<h3 style="color:white">Mercearia</h3><br>
+					<ul class="info"> 
+						
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="azeite.html">Azeite</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="arroz.html">arroz</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="Massa.html">Massa</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="Bolachas.html">Bolachas</a></li>
+						<li><a href="batataFrita.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Batata Frita</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3 style="color:white">laticionios</h3><br>
+					<ul class="info"> 
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="Queijo.html">Queijo</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="Manteiga.html">Manteiga</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="Leite.html">Leite</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3 style="color:white">Bebidas</h3><br>
+					<ul class="info"> 
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="Sumos.html">Sumos & Nectares</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="Refrigerantes.html">Refrigerantes</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="Cervejas.html">Cervejas</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3 style="color:white">Charcutaria</h3><br>
+					<ul class="info"> 
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="Carne.html">Carne</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3 style="color:white">Peixaria</h3><br>
+					<ul class="info"> 
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="Peixe.html">Peixe</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		
+		<div class="footer-copy">
+			
+			<div class="container">
+				<p>Este SuperMercado será apenas para  teste| Os seus dados não serão divulgados <br><a >Obrigado pela sua participação!</a></p>
+			</div>
+		</div>
+		
+	</div>	
+		
+<!-- //footer -->	
+
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- top-header and slider -->
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		/*
+			var defaults = {
+			containerID: 'toTop', // fading element id
+			containerHoverID: 'toTopHover', // fading element hover id
+			scrollSpeed: 1200,
+			easingType: 'linear' 
+			};
+		*/
+							
+		$().UItoTop({ easingType: 'easeOutQuart' });
+		
+							
+		});
+</script>
+
+<!-- main slider-banner -->
+<script src="js/skdslider.min.js"></script>
+<link href="css/skdslider.css" rel="stylesheet">
+<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('#demo1').skdslider({'delay':5000, 'animationSpeed': 2000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
+						
+			jQuery('#responsive').change(function(){
+			  $('#responsive_wrapper').width(jQuery(this).val());
+			});
+			
+		});
+</script>
+<script src="js/minicart.min.js"></script> 
+<script>
+	// Mini Cart
+	paypal.minicart.render({
+		action: '#'
+	});
+
+	if (~window.location.search.indexOf('reset=true')) {
+		paypal.minicart.reset();
+	}	
+
+</script>
+</body>
+</html>
